@@ -18,10 +18,11 @@ restService.post('/echo', function(req, res) {
     var name = req.body.result.parameters.echoText
     var city = req.body.result.parameters.geoCity
     
-    //var speech = "Hello " += name +=" from " += city += ", How are you?"
-    var speech = "Hello World ALALALA"
+    var speech = `Hello $(name)`;
     
-    //var speech = req.body.result
+    //var speech = "Hello " += name +=" from " += city += ", How are you?"
+    //var speech = "Hello World ALALALA"
+    
     return res.json({
         speech: speech,
         displayText: speech,

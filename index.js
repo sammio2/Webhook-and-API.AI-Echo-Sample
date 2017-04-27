@@ -18,6 +18,7 @@ restService.post('/echo', function(req, res) {
     var thing = req.body.result.parameters.echoText
     var city = req.body.result.parameters.geoCity
     
+    
     var speech = `Hello ${name}, how's ${city} treating you?`;
        
     //var speech = "Hello " += name +=" from " += city += ", How are you?"
@@ -37,7 +38,10 @@ restService.post('/search', function(req, res) {
     var thing = req.body.result.parameters.yellThing
     var city = req.body.result.parameters.yellLocation
     
-    var speech = `Okay, here's what I found... https://www.yell.com/ucs/UcsSearchAction.do?keywords=${thing}&location=${city}`;
+    var encodedThing = encodeURIComponent(thing)
+    var encodedCity = encodeURIComponent(city)
+
+    var speech = `Okay, here's what I found... https://www.yell.com/ucs/UcsSearchAction.do?keywords=${encodedThing}&location=${encodedCity}`;
        
     //var speech = "Hello " += name +=" from " += city += ", How are you?"
     //var speech = "Hello World ALALALA"
